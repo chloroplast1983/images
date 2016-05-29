@@ -1,6 +1,6 @@
 # version: v1.2.20160215
 
-FROM 120.25.87.35:5000/php:7-fpm-compiled
+FROM registry.aliyuncs.com/marmot/php:php7-base
 ADD ./libmemcached-1.0.18.tar.gz /data/php7extension/libmemcached
 ADD ./php7redis.tar.gz /data/php7extension/redis
 ADD ./php7memcached.tar.gz /data/php7extension/memcached
