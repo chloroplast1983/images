@@ -1,1 +1,1 @@
-FROM phpmyadmin:nazarpc-latest
+FROM nazarpc/phpmyadmin
