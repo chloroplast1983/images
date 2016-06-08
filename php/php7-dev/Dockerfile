@@ -43,7 +43,6 @@ RUN apt-get update && apt-get install -y zlib1g-dev git && rm -r /var/lib/apt/li
         echo 'opcache.enable_cli=1'; \
         echo 'opcache.huge_code_pages=1'; \
 } | tee /usr/local/etc/php/conf.d/opcache.ini \
-&& set -ex \
 && { \
         echo 'post_max_size = 5M'; \
         echo 'upload_max_filesize = 5M'; \
