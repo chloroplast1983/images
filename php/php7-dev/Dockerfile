@@ -47,4 +47,7 @@ RUN apt-get update && apt-get install -y zlib1g-dev git && rm -r /var/lib/apt/li
         echo 'post_max_size = 5M'; \
         echo 'upload_max_filesize = 5M'; \
 } | tee /usr/local/etc/php/conf.d/upload.ini \
+&& { \
+        echo "date.timezone = 'PRC'"; \
+} | tee /usr/local/etc/php/conf.d/timezone.ini \
 && rm -rf /data/php7extension \
