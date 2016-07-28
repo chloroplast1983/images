@@ -36,6 +36,9 @@ RUN apt-get update && apt-get install -y zlib1g-dev git && rm -r /var/lib/apt/li
 && make install \
 && make clean \
 && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
+&& pecl channel-update pecl.php.net \
+&& pecl install mongodb \
+&& echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
 && set -ex \
 && { \
         echo 'zend_extension=opcache.so'; \
