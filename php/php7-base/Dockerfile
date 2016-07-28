@@ -33,6 +33,7 @@ RUN buildDeps=" \
 		libssl-dev \
 		libxml2-dev \
 		xz-utils \
+                libssl-dev \
 	" \
 	&& set -x \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
