@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 # persistent / runtime deps
-RUN apt-get update && apt-get install -y ca-certificates curl librecode0 libsqlite3-0 libxml2 libfreetype6-dev libjpeg-dev libpng12-dev --no-install-recommends && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ca-certificates curl librecode0 libsqlite3-0 libxml2 libfreetype6-dev libjpeg-dev libpng12-dev libssl-dev --no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # phpize deps
 RUN apt-get update && apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-install-recommends && rm -r /var/lib/apt/lists/*
@@ -30,10 +30,8 @@ RUN buildDeps=" \
 		libreadline6-dev \
 		librecode-dev \
 		libsqlite3-dev \
-		libssl-dev \
 		libxml2-dev \
 		xz-utils \
-                libssl-dev \
 	" \
 	&& set -x \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
