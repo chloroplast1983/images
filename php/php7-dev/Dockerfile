@@ -9,6 +9,7 @@ ADD ./composer.phar /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm -r /var/lib/apt/lists/* \ 
 && chmod 755 /usr/local/bin/composer \
+&& pecl channel-update pecl.php.net \
 && pecl install memcached \
 && docker-php-ext-enable memcached
 #&& cd /data/php7extension/libmemcached/libmemcached-1.0.18/ \
@@ -38,7 +39,6 @@ RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm 
 && make install \
 && make clean \
 && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
-&& pecl channel-update pecl.php.net \
 && pecl install mongodb \
 && docker-php-ext-enable mongodb \
 #&& echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
