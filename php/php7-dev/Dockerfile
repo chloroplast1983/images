@@ -38,7 +38,6 @@ RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm 
 && make clean \
 && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
 && pecl install mongodb \
-&& docker-php-ext-enable mongodb \
 && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
 && set -ex \
 && { \
