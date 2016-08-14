@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm 
 && chmod 755 /usr/local/bin/composer \
 && pecl channel-update pecl.php.net \
 && pecl install memcached \
-&& docker-php-ext-enable memcached
+&& docker-php-ext-enable memcached \
 #&& cd /data/php7extension/libmemcached/libmemcached-1.0.18/ \
 #&& ./configure \
 #&& make \
