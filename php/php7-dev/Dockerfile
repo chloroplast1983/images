@@ -30,6 +30,8 @@ RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm 
 && make install \
 && make clean \
 && echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini \
+&& pecl install pthreads \
+&& echo "extension=pthreads.so" > /usr/local/etc/php/php-cli.ini \
 && cd /data/php7extension/redis/ \
 && phpize \
 && ./configure \
