@@ -1,30 +1,30 @@
 # version: v1.2.20160215
 
 FROM registry.aliyuncs.com/marmot/php7-base 
-#ADD ./libmemcached-1.0.18.tar.gz /data/php7extension/libmemcached
+ADD ./libmemcached-1.0.18.tar.gz /data/php7extension/libmemcached
 ADD ./php7redis.tar.gz /data/php7extension/redis
-#ADD ./php7memcached.tar.gz /data/php7extension/memcached
+ADD ./php7memcached.tar.gz /data/php7extension/memcached
 ADD ./php7apcu.tar.gz /data/php7extension/apcu
 ADD ./composer.phar /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm -r /var/lib/apt/lists/* \ 
 && chmod 755 /usr/local/bin/composer \
 && pecl channel-update pecl.php.net \
-&& pecl install memcached \
-&& docker-php-ext-enable memcached \
-#&& cd /data/php7extension/libmemcached/libmemcached-1.0.18/ \
-#&& ./configure \
-#&& make \
-#&& make install \
-#&& make clean \
-#&& cd /data/php7extension/memcached/ \
-#&& phpize \
-#&& ./configure \
-#	 --disable-memcached-sasl \
-#&& make \
-#&& make install \
-#&& make clean \
-#&& echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini \
+&& pecl install mongodb \
+&& docker-php-ext-enable mongodb \
+&& cd /data/php7extension/libmemcached/libmemcached-1.0.18/ \
+&& ./configure \
+&& make \
+&& make install \
+&& make clean \
+&& cd /data/php7extension/memcached/ \
+&& phpize \
+&& ./configure \
+	 --disable-memcached-sasl \
+&& make \
+&& make install \
+&& make clean \
+&& echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini \
 && cd /data/php7extension/apcu/ \
 && phpize \
 && ./configure \
@@ -39,8 +39,6 @@ RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm 
 && make install \
 && make clean \
 && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
-&& pecl install mongodb \
-&& docker-php-ext-enable mongodb \
 #&& echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini \
 && set -ex \
 && { \
