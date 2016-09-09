@@ -6,6 +6,7 @@ ADD ./php7redis.tar.gz /data/php7extension/redis
 ADD ./php7memcached.tar.gz /data/php7extension/memcached
 ADD ./php7apcu.tar.gz /data/php7extension/apcu
 ADD ./composer.phar /usr/local/bin/composer
+ADD ./confd /usr/local/bin/confd
 
 RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm -r /var/lib/apt/lists/* \ 
 && chmod 755 /usr/local/bin/composer \
