@@ -57,6 +57,6 @@ RUN apt-get update && apt-get install -y zlib1g-dev git libmemcached-dev  && rm 
         echo "date.timezone = 'PRC'"; \
 } | tee /usr/local/etc/php/conf.d/timezone.ini \
 && { \
-        echo "memory_limit = '512MB'"; \
+        echo "memory_limit = '512M'"; \
 } | tee /usr/local/etc/php/conf.d/memorylimit.ini \
 && rm -rf /data/php7extension \
