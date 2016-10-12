@@ -1,5 +1,6 @@
 FROM jenkins
 COPY rancher-compose /usr/local/bin/rancher-compose
+COPY docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
 COPY plugins.txt /usr/share/jenkins/ref/
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
 USER root
